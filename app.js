@@ -11,6 +11,16 @@ var singleRouter = require('./routes/single');
 var aboutRouter = require('./routes/about')
 var codeRouter = require('./routes/code')
 var loginRouter = require('./routes/login')
+var breadRouter = require('./routes/bread')
+var drinkRouter = require('./routes/drinks')
+var checkoutRouter = require('./routes/checkout')
+var eventsRouter = require('./routes/events')
+var faqsRouter = require('./routes/faqs')
+var frozenRouter = require('./routes/frozen')
+var householdRouter = require('./routes/household')
+var kitchenRouter = require('./routes/kitchen')
+var mailRouter = require('./routes/mail')
+var paymentRouter = require('./routes/payment')
 var app = express();
 
 // view engine setup
@@ -32,8 +42,16 @@ app.use('/single', singleRouter);
 app.use('/about', aboutRouter);
 app.use('/code', codeRouter);
 app.use('/login', loginRouter);
-
-
+app.use('/bread', breadRouter);
+app.use('/drinks', drinkRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/events', eventsRouter);
+app.use('/faqs', faqsRouter);
+app.use('/frozen', frozenRouter);
+app.use('/household', householdRouter);
+app.use('/kitchen', kitchenRouter);
+app.use('/mail', mailRouter);
+app.use('/payment', paymentRouter);
 // Connect MongoDB
 
 
