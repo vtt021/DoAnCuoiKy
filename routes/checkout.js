@@ -5,5 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('checkout', { title: '' });
 });
-
+router.post('/', function(req, res, next) {
+  res.render('checkout', { title: '' });
+});
 module.exports = router;
