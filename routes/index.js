@@ -19,7 +19,7 @@ client.connect(err => {
     data2 = docs;
     router.get('/', function (req, res, next) {
       res.render('index', {
-        "data": data2
+        data: data2
       });
     });
   });
