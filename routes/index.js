@@ -4,7 +4,7 @@ var router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 // Connection URL
-const uri = 'mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority';
+const uri ='mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority'||'mongodb://localhost:27017';
 //'mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority' ||
 //'mongodb://localhost:27017'
 const client = new MongoClient(uri, { useNewUrlParser: true });

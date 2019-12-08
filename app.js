@@ -11,6 +11,7 @@ var singleRouter = require('./routes/single');
 var aboutRouter = require('./routes/about')
 var codeRouter = require('./routes/code')
 var loginRouter = require('./routes/login')
+var petRouter = require('./routes/pet')
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/single', singleRouter);
 app.use('/about', aboutRouter);
 app.use('/code', codeRouter);
 app.use('/login', loginRouter);
+app.use('/pet', petRouter);
 
 
 // Connect MongoDB

@@ -46,10 +46,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-  <% include elements/header %>   
-  <% include elements/banner %>   
-  <% include elements/topbrands %>   
-  
+  <% include elements/header %>
+  <div class="products-breadcrumb">
+      <div class="container">
+        <ul>
+          <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
+        </ul>
+      </div>
+      <!-- banner -->
+    </div>
+  <% include elements/banner %>
+  <!-- products-breadcrumb -->
+  <% include elements/topbrands %>
+
   <!-- fresh-vegetables -->
   <div class="fresh-vegetables">
     <div class="container">
@@ -83,8 +92,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <img src="images/7.jpg" alt=" " class="img-responsive" />
                 <div class="w3l_fresh_vegetables_grid1_rel_pos">
                   <div class="more m1">
-                    <a href="products" class="button--saqui button--round-l button--text-thick"
-                      data-text="Shop now">Mua sắm ngay</a>
+                    <a href="products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Mua
+                      sắm ngay</a>
                   </div>
                 </div>
               </div>
@@ -120,8 +129,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
   </div>
   <!-- //fresh-vegetables -->
-  <% include elements/newletter %>   
-  <% include elements/footer %>   
+  <% include elements/newletter %>
+  <% include elements/footer %>
 
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
