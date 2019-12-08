@@ -27,5 +27,10 @@ client.connect(err => {
   client.close();
 });
 
-/* GET home page. */
+/* POST home page. */
+router.get('/', function (req, res, next) {
+  res.render('index', {
+    "data": data2
+  });
+});
 module.exports = router;
