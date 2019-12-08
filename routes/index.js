@@ -28,9 +28,7 @@ client.connect(err => {
 });
 
 /* POST home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', {
-    "data": data2
-  });
+router.post('/', function (req, res, next) {
+  res.render('index', {  });
 });
 module.exports = router;
