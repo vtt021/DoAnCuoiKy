@@ -31,6 +31,8 @@ var householdRouter = require('./routes/household')
 var kitchenRouter = require('./routes/kitchen')
 var mailRouter = require('./routes/mail')
 var paymentRouter = require('./routes/payment')
+var vegetablesRouter = require('./routes/vegetables');
+var servicesRouter = require('./routes/services');
 
 var app = express();
 
@@ -87,6 +89,8 @@ app.use('/household', householdRouter);
 app.use('/kitchen', kitchenRouter);
 app.use('/mail', mailRouter);
 app.use('/payment', paymentRouter);
+app.use('/services', servicesRouter);
+app.use('/vegetables', vegetablesRouter);
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
