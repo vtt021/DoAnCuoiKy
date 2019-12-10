@@ -3,10 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose=require('mongoose')
+var mongoose = require('mongoose')
+const flash = require('connect-flash');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+var session = require('express-session');
 //ket noi mongoose
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority'||'mongodb://localhost:27017')
+mongoose.connect('mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority' || 'mongodb://localhost:27017')
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -40,6 +45,29 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+//
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'public')))
+
+//flash 
+app.use(session({ cookie: { maxAge: 60000 }, 
+  secret: 'woot',
+  resave: false, 
+  saveUninitialized: false}));
+app.use(flash())
+app.use((req, res, next) => {
+  res.locals.success_mesages = req.flash('success')
+  res.locals.error_messages = req.flash('error')
+  next()
+})
+
+//passport 
+app.use(passport.initialize())
+app.use(passport.session())
+
+//Views
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
 app.use('/users', usersRouter);
@@ -49,8 +77,6 @@ app.use('/about', aboutRouter);
 app.use('/code', codeRouter);
 app.use('/login', loginRouter);
 app.use('/pet', petRouter);
-
-
 app.use('/bread', breadRouter);
 app.use('/drinks', drinkRouter);
 app.use('/checkout', checkoutRouter);
@@ -62,17 +88,13 @@ app.use('/kitchen', kitchenRouter);
 app.use('/mail', mailRouter);
 app.use('/payment', paymentRouter);
 
-// Connect MongoDB
-
-
-
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
   next(createError(404));
 });*/
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

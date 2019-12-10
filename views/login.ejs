@@ -42,10 +42,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		});
 	</script>
+	<script>
+			if (<%= option %> == 1 ) alert("<%= title %>")
+			if (<%= option %> == 2 ) alert("Đăng ký thành công")
+		</script>
 	<!-- start-smoth-scrolling -->
 </head>
 
 <body>
+	
 	<!-- header -->
 	<% include elements/header %>
 	<!-- products-breadcrumb -->
@@ -65,7 +70,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="w3_login_module">
 			<div class="module form-module">
 				<div class="toggle"><i class="fa fa-times fa-pencil"></i>
-					<div class="tooltip">Tạo tài khoản
+					<div class="tooltip">Tạo
 					</div>
 				</div>
 				<div class="form">
@@ -78,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="form">
 					<h2>Tạo tài khoản</h2>
-					<form action="login/signin" method="post">
+					<form action="login/register" method="post">
 						<input type="text" name="Username" placeholder="Username" required=" ">
 						<input type="password" name="Password" placeholder="Password" required=" ">
 						<input type="email" name="Email" placeholder="Email Address" required=" ">
