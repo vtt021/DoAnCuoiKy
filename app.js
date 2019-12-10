@@ -3,6 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose=require('mongoose')
+//ket noi mongoose
+mongoose.Promise = global.Promise
+mongoose.connect('mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority'||'mongodb://localhost:27017')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -22,6 +26,7 @@ var householdRouter = require('./routes/household')
 var kitchenRouter = require('./routes/kitchen')
 var mailRouter = require('./routes/mail')
 var paymentRouter = require('./routes/payment')
+
 var app = express();
 
 // view engine setup
@@ -56,6 +61,7 @@ app.use('/household', householdRouter);
 app.use('/kitchen', kitchenRouter);
 app.use('/mail', mailRouter);
 app.use('/payment', paymentRouter);
+
 // Connect MongoDB
 
 
