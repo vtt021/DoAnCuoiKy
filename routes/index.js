@@ -17,16 +17,17 @@ client.connect(err => {
   var data2 = Array;
   collection.find({}).toArray(function (e, docs) {
     data2 = docs;
-    router.get('/', function (req, res, next) {
-      res.render('index', {
-        data: data2
-      });
-    });
+   
   });
   // perform actions on the collection object
   client.close();
 });
 
+
+router.get('/', function (req, res, next) {
+  res.render('index', {
+  });
+});
 /* POST home page. */
 router.post('/', function (req, res, next) {
   res.render('index', {  });
