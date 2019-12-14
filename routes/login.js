@@ -17,10 +17,13 @@ const userSchema = Joi.object().keys({
 router.get('/', function (req, res, next) {
   res.render('login', { title: ' ', option: 0 });
 });
+// Xử lý thông tin khi có người thực hiện đăng nhập
 router.post('/', function (req, res, next) {
-  res.render('login', { title: 'Đăng nhập thành công', option: 1});
+  res.render('login', { title: 'Đăng nhập thành công', option: 1 });
 });
-// phuong thuc GET 
+
+
+// Dang ky 
 router.get('/login2', function (req, res, next) {
   res.render('login', { title: ' ', option: 2 });
 });
@@ -60,4 +63,33 @@ router.post('/register', async (req, res, next) => {
     next(error)
   }
 });
+
+/*
+// PROFILE SECTION =====================
+// =====================================
+// Đây là trang sẽ được bảo vệ, chỉ những người đã đăng nhập mới có thể xem được
+// Chúng ta sẽ sử dụng route middleware để kiểm tra xem người đó đã đăng nhập chưa
+// hàm isLoggedIn sẽ làm việc đó.
+app.get('/profile', isLoggedIn, function (req, res) {
+  res.render('profile.ejs', {
+    user: req.user // Lấy thông tin user trong session và truyền nó qua template
+  });
+});
+
+// =====================================
+// LOGOUT ==============================
+// =====================================
+app.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/');
+});
+
+// route middleware để kiểm tra một user đã đăng nhập hay chưa?
+function isLoggedIn(req, res, next) {
+  // Nếu một user đã xác thực, cho đi tiếp
+  if (req.isAuthenticated())
+    return next();
+  // Nếu chưa, đưa về trang chủ
+  res.redirect('/');
+}*/
 module.exports = router
