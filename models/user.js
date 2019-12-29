@@ -17,13 +17,21 @@ const userSchema = new Schema({
     }
 })
 module.exports.hashPassword = async(password) => {
-        try {
-            const salt = await bcrypt.genSalt(10)
-            return await bcrypt.hash(password, salt)
-        } catch (error) {
-            throw new Error('Hashing failed', error)
-        }
+    try {
+        const salt = await bcrypt.genSalt(10)
+        return await bcrypt.hash(password, salt)
+    } catch (error) {
+        throw new Error('Hashing failed', error)
     }
-    // 4
+}
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+// kiểm tra password có hợp lệ không
+userSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+};
+
+// 4
 const User = mongoose.model('user', userSchema)
 module.exports = User
