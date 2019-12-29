@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
             data = docs;
         });
         // perform actions on the collection object
-        //client.close();
+        client.close();
     });
 
     res.render('drinks', { data: data });
