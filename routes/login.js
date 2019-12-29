@@ -38,16 +38,22 @@ router.get('/register', function(req, res) {
     res.render('index')
 });
 // phuong thuc POST
+router.post('/register', passport.authenticate('local-signup', {
+    successRedirect: '/profile', // chuyển hướng tới trang được bảo vệ
+    failureRedirect: '/index', // trở lại trang đăng ký nếu có lỗi
+    failureFlash: true // allow flash messages
+}));
+/*
 router.post('/register', async(req, res, next) => {
 
     try {
-        /*const result = Joi.validate(req.body, userSchema)
+        const result = Joi.validate(req.body, userSchema)
         if (result.error) {
             req.flash('error', 'Data entered is not valid. Please try again.')
             res.redirect('/register')
             return
         }
-        console.log(result);*/
+        console.log(result);
 
         const body = req.body;
         const newUser = await new User({ email: req.body.Email, username: req.body.Username, password: req.body.Password, phone: req.body.Phone })
@@ -60,6 +66,7 @@ router.post('/register', async(req, res, next) => {
         next(error)
     }
 });
+*/
 
 /*
 // PROFILE SECTION =====================
