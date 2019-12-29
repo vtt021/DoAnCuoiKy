@@ -68,7 +68,7 @@ var mailRouter = require('./routes/mail')
 var paymentRouter = require('./routes/payment')
 var vegetablesRouter = require('./routes/vegetables');
 var servicesRouter = require('./routes/services');
-
+var userRouter = require('./routes/user');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -115,6 +115,7 @@ app.use('/mail', mailRouter);
 app.use('/payment', paymentRouter);
 app.use('/services', servicesRouter);
 app.use('/vegetables', vegetablesRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {

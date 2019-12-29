@@ -1,67 +1,64 @@
 const express = require('express');
-const router = express.Router()
+const router = express();
 const Joi = require('joi')
 const passport = require('passport')
-
+const mongoose = require('mongoose')
 const User = require('../models/user')
+const bodyParser = require("body-parser");
 
+router.use(bodyParser.json());
 
-//validation schema
+//router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({
+    extended: true
+}));
+mongoose.connect("mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/QuanLySanPham?retryWrites=true&w=majority" || "mongodb://localhost:27017", { useNewUrlParser: true, useUnifiedTopology: true })
+    //validation schema
 
 const userSchema = Joi.object().keys({
-  email: Joi.string().email().required(),
-  username: Joi.string().required(),
-  password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
-  confirmationPassword: Joi.any().valid(Joi.ref('password')).required()
-})
-router.get('/', function (req, res, next) {
-  res.render('login', { title: ' ', option: 0 });
+    email: Joi.string().required(),
+    username: Joi.string().required(),
+    password: Joi.string().required(),
+    phone: Joi.number().required()
+});
+router.get('/', function(req, res, next) {
+    res.render('login', { title: ' ', option: 0 });
 });
 // Xử lý thông tin khi có người thực hiện đăng nhập
-router.post('/', function (req, res, next) {
-  res.render('login', { title: 'Đăng nhập thành công', option: 1 });
+router.post('/', function(req, res, next) {
+    res.render('login', { title: 'Đăng nhập thành công', option: 1 }); {
+
+    }
 });
 
 
 // Dang ky 
-router.get('/login2', function (req, res, next) {
-  res.render('login', { title: ' ', option: 2 });
-});
 
-router.get('/register', function (req, res) {
-  res.render('index')
+router.get('/register', function(req, res) {
+    res.render('index')
 });
 // phuong thuc POST
-router.post('/register', async (req, res, next) => {
-  try {
-    const result = Joi.validate(req.body, userSchema)
-    if (result.error) {
-      req.flash('error', 'Dữ liệu không hợp lệ, mời nhập lại.')
-      res.redirect('/login')
-      return
+router.post('/register', async(req, res, next) => {
+
+    try {
+        /*const result = Joi.validate(req.body, userSchema)
+        if (result.error) {
+            req.flash('error', 'Data entered is not valid. Please try again.')
+            res.redirect('/register')
+            return
+        }
+        console.log(result);*/
+
+        const body = req.body;
+        const newUser = await new User({ email: req.body.Email, username: req.body.Username, password: req.body.Password, phone: req.body.Phone })
+        await newUser.save()
+
+        req.flash('Thành công', 'Bạn đã đăng ký thành công, mời đăng nhập.')
+        res.redirect('/login')
+
+    } catch (error) {
+        next(error)
     }
-
-    const user = await User.findOne({ 'email': result.value.email })
-    if (user) {
-      req.flash('error', 'Email đã được sử dụng.')
-      res.redirect('/login')
-      return
-    }
-
-    const hash = await User.hashPassword(result.value.password)
-
-    delete result.value.confirmationPassword
-    result.value.password = hash
-
-    const newUser = await new User(result.value)
-    await newUser.save()
-
-    req.flash('success', 'Đăng ký thành công, hãy đăng nhập')
-    res.redirect('/login', { option: 2 })
-
-  } catch (error) {
-    next(error)
-  }
 });
 
 /*
