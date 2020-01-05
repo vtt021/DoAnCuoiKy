@@ -10,7 +10,7 @@ const passport = require('passport');
 var session = require('express-session');
 var configDB = require('./config/database');
 var assert = require('assert');
-var { User } = require('./models');
+var { User } = require('./models/user');
 
 
 var app = express();

@@ -1,9 +1,17 @@
 var mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var sanphamSchema = new mongoose.Schema({
-    name: String,
-    price: String,
-    class: String
+const sanphamSchema = new Schema({
+    name: { type: String, required: true },
+    price: { type: String, required: true },
+    class: { type: String, required: true }
 });
+const sanpham = mongoose.model('SanPham', sanphamSchema, 'Products')
 
-module.exports = mongoose.model('Pet', sanphamSchema);
+sanpham.getAll = async() => {
+    var query = await sanpham.find({});
+    console.log(query)
+    return query;
+}
+
+module.exports = sanpham
