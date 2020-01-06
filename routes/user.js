@@ -1,52 +1,107 @@
-const express = require('express');
-const router = express.Router()
-const Joi = require('joi')
-const passport = require('passport')
+var express = require('express');
+var router = express.Router();
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+//User model
+let User = require('../models/user');
 
-const User = require('../models/user')
+//Login Page
+router.get('/login',(req,res) => res.render('login'));
+
+//Register Page
+router.get('/register',(req,res) => res.render('register'));
+
+//Register handle
+router.post('/register',(req,res) => {
+   const {name,email,password,password2} = req.body;
+
+   let errors =[];
+   //Check require fields
+   if(!name || !email || !password || !password2) {
+       errors.push({msg:'Please fill in all fields'});
+   }
+
+   //Check password match
+   if(password !== password2) {
+       errors.push({msg:'Passwords do not match'});
+   }
 
 
-//validation schema
-const userSchema = Joi.object().keys({
-    email: Joi.string().email().required(),
-    username: Joi.string().required(),
-    password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/).required(),
-    phone: Joi.number().required()
-})
-router.get('/register', function(req, res, next) {
-    res.render('login', { title: ' ', option: 0 });
+   //Check pass length
+   if(password.length < 6){
+       errors.push({msg: 'Password should be at least 6 characters'});
+   }
+
+   if(errors.length > 0){
+       res.render('register',{
+           errors,
+           name,
+           email,
+           password,
+           password2
+
+       });
+
+   }else {
+      //Validation passed
+      User.findOne({email: email})
+      .then(user => {
+          if (user){
+                //User exists
+                errors.push({msg:'Email is already registered'});
+                res.render('register',{
+                    errors,
+                    name,
+                    email,
+                    password,
+                    password2
+         
+                });
+          }else {
+              const newUser = new User({
+                  name,
+                  email,
+                  password
+              });
+
+             //Hash Password
+             bcrypt.genSalt(10,(err,salt) => bcrypt.hash(newUser.password,salt,(err,hash) =>{
+                 if(err) throw err;
+                 //Set password to hashed
+                 newUser.password = hash;
+                 //Save user
+                 newUser.save()
+                    .then(user => {
+                        req.flash('success_msg','You are now registered and can login');
+                        res.redirect('/users/login');
+                    })
+                    .catch(err => console.log(err));
+             }))
+
+          }
+
+      });
+   }
+
 });
-router.route('/register')
-    .post(async(req, res, next) => {
-        try {
-            const result = Joi.validate(req.body, userSchema)
-            if (result.error) {
-                req.flash('error', 'Data entered is not valid. Please try again.')
-                res.redirect('/register')
-                return
-            }
 
-            const user = await User.findOne({ 'email': result.value.email })
-            if (user) {
-                req.flash('error', 'Email is already in use.')
-                res.redirect('/register')
-                return
-            }
 
-            const hash = await User.hashPassword(result.value.password)
+//Login Handle
+router.post('/login', (req,res,next) =>{
+    passport.authenticate('local',{
+        successRedirect: '/dashboard',
+        failureRedirect: 'users/login',
+        failureFlash: true
+    })(req,res,next);
 
-            //           delete result.value.confirmationPassword
-            result.value.password = hash
+});
 
-            const newUser = await new User(result.value)
-            await newUser.save()
 
-            req.flash('Thành công', 'Bạn đã đăng ký thành công, mời đăng nhập.')
-            res.redirect('/login')
+//Logout Handle
+router.get('logout', (req,res) =>{
+    req.logout();
+    req.flash('success_msg','You are logged out');
+    res.redirect('/users/login');
+});
 
-        } catch (error) {
-            next(error)
-        }
-    })
-
-module.exports = router
+module.exports = router;
