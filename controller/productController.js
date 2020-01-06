@@ -44,4 +44,14 @@ productController.getPet = async(req, res) => {
         console.log("Erroo in get Pet  " + error)
     }
 }
+productController.getDrinks = async(req, res) => {
+    try {
+        const Drinks = await product.getDrinks();
+        res.render('drinks', {
+            data: Drinks
+        });
+    } catch (error) {
+        console.log("Erroo in get Drinks  " + error)
+    }
+}
 module.exports = productController;

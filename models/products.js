@@ -43,7 +43,8 @@ product.getDrinks = async function(err, docs) {
     let query = await product.find({
         $or: [
             { class: "Soft Drinks" },
-            { class: "Juices" }
+            { class: "Juices" },
+            { class: "Energy Drinks" }
         ]
     })
     console.log(query);
