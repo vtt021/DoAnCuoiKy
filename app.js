@@ -70,7 +70,7 @@ var indexRouter = require('./routes/index');
 var productsRouter = require('./routes/products');
 var singleRouter = require('./routes/single');
 var aboutRouter = require('./routes/about')
-var codeRouter = require('./routes/code')
+var profileRouter = require('./routes/profile')
 var loginRouter = require('./routes/login')
 var petRouter = require('./routes/pet')
 var breadRouter = require('./routes/bread')
@@ -118,7 +118,7 @@ app.use('/index', indexRouter);
 app.use('/products', productsRouter);
 app.use('/single', singleRouter);
 app.use('/about', aboutRouter);
-app.use('/code', codeRouter);
+app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
 app.use('/pet', petRouter);
 app.use('/bread', breadRouter);

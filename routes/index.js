@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const {ensureAuthenticated } = require('../config/auth');
-const samphamController = require('../controller/controller')
+const samphamController = require('../controller/productController')
+
 
 
 //Welcome Page
