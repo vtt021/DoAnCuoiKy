@@ -1,46 +1,48 @@
 {
-    "name": "doancuoiky",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "nodemon ./bin/www"
-    },
-    "dependencies": {
-        "bcrypt-nodejs": "0.0.3",
-        "bcryptjs": "^2.4.3",
-        "body-parser": "^1.19.0",
-        "connect-flash": "^0.1.1",
-        "cookie-parser": "^1.4.4",
-        "debug": "~2.6.9",
-        "dotenv": "^8.2.0",
-        "ejs": "~2.6.1",
-        "express": "~4.16.1",
-        "express-session": "^1.17.0",
-        "express-validator": "^6.3.0",
-        "flash": "^1.1.0",
-        "http-errors": "~1.6.3",
-        "joi": "^14.3.1",
-        "method-override": "^3.0.0",
-        "mongodb": "^3.4.1",
-        "mongoose": "^5.8.3",
-        "morgan": "^1.9.1",
-        "passport": "^0.4.1",
-        "passport-local": "^1.0.0",
-        "session": "^0.1.0",
-        "sessions": "0.0.2-7"
-    },
-    "main": "app.js",
-    "devDependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/danguyen0801/DACK_WEB.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/danguyen0801/DACK_WEB/issues"
-    },
-    "homepage": "https://github.com/danguyen0801/DACK_WEB#readme",
-    "description": ""
+  "name": "doancuoiky",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "devStart": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.3.0",
+    "flash": "^1.1.0",
+    "http-errors": "~1.6.3",
+    "joi": "^14.3.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.4.1",
+    "mongoose": "^5.8.3",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "session": "^0.1.0",
+    "sessions": "0.0.2-7"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danguyen0801/DACK_WEB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danguyen0801/DACK_WEB/issues"
+  },
+  "homepage": "https://github.com/danguyen0801/DACK_WEB#readme",
+  "description": ""
 }

@@ -4,52 +4,69 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose')
-const flash = require('connect-flash');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-var session = require('express-session');
 var configDB = require('./config/database');
 var assert = require('assert');
-var { User } = require('./models/user');
+//var User = require('./models/user');
+var expressLayouts = require('express-ejs-layouts');
 
+//Passport
 
-var app = express();
-app.use(express.static(__dirname + '/public'));
+//Passport config
+const passport = require('passport');
+require('./config/passport')(passport);
 
-//ket noi mongoose
-//'mongodb+srv://thientin:12345679@cluster0-yf6sd.mongodb.net/test?retryWrites=true&w=majority' || 
-//mongoose.Promise = global.Promise
-/*mongoose.connect(configDB.url, { useUnifiedTopology: true, useNewUrlParser: true }, err => {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-    /*const db = mongoose.connection.db("QuanLySanPham");
-    var collection = db.collection('Products');
-    collection.find({}).toArray(function(e, docs) {
-        console.log(docs[0]);
-    });*/
+const flash = require('connect-flash');
+const session = require('express-session');
+const app = express();
+//DB Config
+const db = require('./config/keys').MongoURI;
 
-//});
-require('./config/passport')(passport); // pass passport for configuration
-// APP
+//Connect to Mongo
+mongoose.connect(db,{useNewUrlParser: true})
+.then(()=>console.log('MongoDB Connected..'))
+.catch(err => console.log(err));
+//EJS
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
 
+//Bodyparser
+app.use(express.urlencoded({extended: false}));
 
-// /APP
-/*
-app.use(morgan('dev')); // log tất cả request ra console log
-app.use(cookieParser()); // đọc cookie (cần cho xác thực)
-app.use(bodyParser()); // lấy thông tin từ html forms
-// các cài đặt cần thiết cho passport
-app.use(session({secret: 'doancuoiky'})); // chuối bí mật đã mã hóa coookie
+//Express Session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+    
+  }));
+
+//Passport middleware
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
-// routes ======================================================================
-//require('./routes')(app, passport); // Load routes truyền vào app và passport đã config ở trên
-*/
+app.use(passport.session());
+
+
+  //Connect flash
+  app.use(flash());
+//Global Vars
+app.use((req,res,next) =>{
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error_msg = req.flash('error');
+    next();
+});
+//Routes
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/user'));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+
+app.use(express.static(__dirname + '/public'));
 
 // perform actions on the collection object
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var singleRouter = require('./routes/single');
 var aboutRouter = require('./routes/about')
@@ -98,7 +115,6 @@ app.use((req, res, next) => {
     //Views
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
-app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/single', singleRouter);
 app.use('/about', aboutRouter);
