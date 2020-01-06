@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 
 router.use(bodyParser.json());
 
-//router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -43,57 +42,5 @@ router.post('/register', passport.authenticate('local-signup', {
     failureRedirect: '/index', // trở lại trang đăng ký nếu có lỗi
     failureFlash: true // allow flash messages
 }));
-/*
-router.post('/register', async(req, res, next) => {
 
-    try {
-        const result = Joi.validate(req.body, userSchema)
-        if (result.error) {
-            req.flash('error', 'Data entered is not valid. Please try again.')
-            res.redirect('/register')
-            return
-        }
-        console.log(result);
-
-        const body = req.body;
-        const newUser = await new User({ email: req.body.Email, username: req.body.Username, password: req.body.Password, phone: req.body.Phone })
-        await newUser.save()
-
-        req.flash('Thành công', 'Bạn đã đăng ký thành công, mời đăng nhập.')
-        res.redirect('/login')
-
-    } catch (error) {
-        next(error)
-    }
-});
-*/
-
-/*
-// PROFILE SECTION =====================
-// =====================================
-// Đây là trang sẽ được bảo vệ, chỉ những người đã đăng nhập mới có thể xem được
-// Chúng ta sẽ sử dụng route middleware để kiểm tra xem người đó đã đăng nhập chưa
-// hàm isLoggedIn sẽ làm việc đó.
-app.get('/profile', isLoggedIn, function (req, res) {
-  res.render('profile.ejs', {
-    user: req.user // Lấy thông tin user trong session và truyền nó qua template
-  });
-});
-
-// =====================================
-// LOGOUT ==============================
-// =====================================
-app.get('/logout', function (req, res) {
-  req.logout();
-  res.redirect('/');
-});
-
-// route middleware để kiểm tra một user đã đăng nhập hay chưa?
-function isLoggedIn(req, res, next) {
-  // Nếu một user đã xác thực, cho đi tiếp
-  if (req.isAuthenticated())
-    return next();
-  // Nếu chưa, đưa về trang chủ
-  res.redirect('/');
-}*/
 module.exports = router

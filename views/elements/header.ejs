@@ -7,7 +7,7 @@
     <form action="#" method="post">
       <input type="text" name="Product" value="Tìm sản phẩm..." onfocus="this.value = '';"
         onblur="if (this.value == '') {this.value = 'Tìm sản phẩm...';}" required="">
-      <input type="submit" value=" " >
+      <input type="submit" value=" ">
     </form>
   </div>
   <div class="product_list_header">
@@ -27,8 +27,12 @@
         <div class="mega-dropdown-menu">
           <div class="w3ls_vegetables">
             <ul class="dropdown-menu drp-mnu">
+              <% if (login) { %>
+              <li><a href="user/logout">Log out </li>
+              <% } else { %>
               <li><a href="login">Login</a></li>
-              <li><a href="login">Sign Up</a></li>
+              <li><a href="register">Sign Up</a></li>
+              <% } %>
             </ul>
           </div>
         </div>

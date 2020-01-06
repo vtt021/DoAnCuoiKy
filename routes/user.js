@@ -49,7 +49,7 @@ router.post('/register',(req,res) => {
           if (user){
                 //User exists
                 errors.push({msg:'Email is already registered'});
-                res.render('register',{
+                res.render('/register',{
                     errors,
                     name,
                     email,
@@ -73,7 +73,7 @@ router.post('/register',(req,res) => {
                  newUser.save()
                     .then(user => {
                         req.flash('success_msg','You are now registered and can login');
-                        res.redirect('/users/login');
+                        res.redirect('/login');
                     })
                     .catch(err => console.log(err));
              }))
@@ -89,8 +89,8 @@ router.post('/register',(req,res) => {
 //Login Handle
 router.post('/login', (req,res,next) =>{
     passport.authenticate('local',{
-        successRedirect: '/dashboard',
-        failureRedirect: 'users/login',
+        successRedirect: '/profile',
+        failureRedirect: '/login',
         failureFlash: true
     })(req,res,next);
 
@@ -98,10 +98,10 @@ router.post('/login', (req,res,next) =>{
 
 
 //Logout Handle
-router.get('logout', (req,res) =>{
+router.get('/logout', (req,res) =>{
     req.logout();
     req.flash('success_msg','You are logged out');
-    res.redirect('/users/login');
+    res.redirect('/login');
 });
 
 module.exports = router;
