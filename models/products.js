@@ -14,8 +14,25 @@ product.getAll = async() => {
     var query = await product.find({});
     return query;
 }
-product.getName = async function(err, docs) {
-    let query = await product.find({ name: docs })
+product.getSingle = function(id) {
+    let query = product.findOne({ _id: id })
+
+    return query;
+}
+product.getName = function(name) {
+    let query = product.find({ name: name })
+
+    return query;
+}
+product.getAdvance = async function(name, price, Class) {
+    let query = await product.find({
+        $or: [
+            { name: name },
+            { price: price },
+            { class: Class }
+        ]
+    })
+    console.log(query);
     return query;
 }
 product.getBread = async function(err, docs) {
