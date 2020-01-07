@@ -24,6 +24,7 @@ product.getBread = async function(err, docs) {
     console.log(query);
     return query;
 }
+
 product.getPet = async function(err, docs) {
     let query = await product.find({ class: "Pet Food" })
     console.log(query);
@@ -50,5 +51,15 @@ product.getDrinks = async function(err, docs) {
     console.log(query);
     return query;
 }
-
+product.getHousehold = async function(err, docs) {
+    let query = await product.find({
+        $or: [
+            { class: "Cleaning" },
+            { class: "Utensils" },
+            { class: "Pet Food" }
+        ]
+    })
+    console.log(query);
+    return query;
+}
 module.exports = product
