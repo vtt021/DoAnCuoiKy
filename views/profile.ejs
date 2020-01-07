@@ -56,8 +56,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="products-breadcrumb">
             <div class="container">
                 <ul>
-                    <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
-                    <li>Short Codes</li>
+                    <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Trang chủ</a><span>|</span></li>
+                    <li>Thông tin cá nhân</li>
                 </ul>
             </div>
         </div>
@@ -75,20 +75,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="card">
                                             <div class="card-body">
                                                 <center class="m-t-30"> <img src="images/5.jpg" class="rounded-circle" width="150" />
-                                                    <h4 class="card-title m-t-10">Hanna Gover</h4>
-                                                    <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                                    <h4 class="card-title m-t-10">
+                                                        <%= userdata.name %>
+                                                    </h4>
+                                                    <h6 class="card-subtitle"></h6>
                                                     <div class="row text-center justify-content-md-center">
-                                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
-                                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
                                                     </div>
                                                 </center>
                                             </div>
                                             <div>
                                                 <hr> </div>
-                                            <div class="card-body"> <small class="text-muted">Email address </small>
-                                                <h6>hannagover@gmail.com</h6> <small class="text-muted p-t-30 db">Phone</small>
-                                                <h6>+91 654 784 547</h6> <small class="text-muted p-t-30 db">Address</small>
-                                                <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
+                                            <div class="card-body">
+                                                <small class="text-muted">Email address </small>
+                                                <h6>
+                                                    <%= userdata.email %>
+                                                </h6>
+                                                <small class="text-muted p-t-30 db">Số điện thoại</small>
+                                                <h6>
+                                                    <%= userdata.phone %>
+                                                </h6>
+                                                <small class="text-muted p-t-30 db">Địa chỉ</small>
+                                                <h6>
+                                                    <%= userdata.address %>
+                                                </h6>
+                                                <small class="text-muted p-t-30 db">Nghề nghiệp</small>
+                                                <h6>
+                                                    <%= userdata.job %>
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
@@ -101,43 +114,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <div class="form-group">
                                                         <label class="col-md-12">Full Name</label>
                                                         <div class="col-md-12">
-                                                            <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                                            <input type="text" placeholder="<%= userdata.name %>" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="example-email" class="col-md-12">Email</label>
                                                         <div class="col-md-12">
-                                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                                            <input type="email" placeholder="<%= userdata.email %>" class="form-control form-control-line" name="example-email" id="example-email">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">Password</label>
                                                         <div class="col-md-12">
-                                                            <input type="password" value="password" class="form-control form-control-line">
+                                                            <input type="password" placeholder="password" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Phone No</label>
+                                                        <label class="col-md-12">Số điện thoại</label>
                                                         <div class="col-md-12">
-                                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                                            <input type="text" placeholder="<%= userdata.phone %>" class="form-control form-control-line">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Địa chỉ</label>
+                                                        <div class="col-md-12">
+                                                            <input type="text" placeholder="<%= userdata.address %>" class="form-control form-control-line">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Nghề nghiệp</label>
+                                                        <div class="col-md-12">
+                                                            <input type="text" placeholder="<%= userdata.job %>" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">Message</label>
                                                         <div class="col-md-12">
-                                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-12">Select Country</label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-control form-control-line">
-																<option>London</option>
-																<option>India</option>
-																<option>Usa</option>
-																<option>Canada</option>
-																<option>Thailand</option>
-															</select>
+                                                            <textarea rows="3" class="form-control form-control-line"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">

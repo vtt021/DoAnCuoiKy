@@ -65,6 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- //products-breadcrumb -->
         <!-- banner -->
+
         <div class="banner">
             <!-- INCLUDE BANNER-->
             <% include elements/leftbanner %>
@@ -74,54 +75,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="clearfix"> </div>
                     <!-- Danh sách mặt hàng-->
-                        <div class="w3ls_w3l_banner_nav_right_grid">
-                            <h3>Thương hiệu phổ biến</h3>
-                            <div class="w3ls_w3l_banner_nav_right_grid1">
-                                <h6>Thực phẩm</h6>
-                                <% for (var i =1; i < data.length ; i++ ) { %>
-                                    <div class="col-md-3 w3ls_w3l_banner_left">
-                                        <div class="hover14 column">
-                                            <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                                                <div class="agile_top_brand_left_grid_pos">
-                                                    <img src="images/offer.png" alt=" " class="img-responsive" />
-                                                </div>
-                                                <div class="agile_top_brand_left_grid1">
-                                                    <figure>
-                                                        <div class="snipcart-item block">
-                                                            <div class="snipcart-thumb">
-                                                                <a href="single"><img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" /></a>
-                                                                <p>
-                                                                    <%= data[i].name %>
-                                                                </p>
-                                                                <h4>
-                                                                    <%= data[i].price %>
-                                                                </h4>
-                                                            </div>
-                                                            <div class="snipcart-details">
-                                                                <form action="#" method="post">
-                                                                    <fieldset>
-                                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                                        <input type="hidden" name="add" value="1" />
-                                                                        <input type="hidden" name="business" value=" " />
-                                                                        <input type="hidden" name="item_name" value="<%= data[i].name %>" />
-                                                                        <input type="hidden" name="amount" value="<%= data[i].price %>" />
-                                                                        <input type="hidden" name="discount_amount" value="0đ" />
-                                                                        <input type="hidden" name="currency_code" value="dong" />
-                                                                        <input type="hidden" name="return" value=" " />
-                                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                                        <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                                    </fieldset>
-                                                                </form>
-                                                            </div>
+                    <div class="w3ls_w3l_banner_nav_right_grid">
+                        <h3>Thương hiệu phổ biến</h3>
+                        <div class="w3ls_w3l_banner_nav_right_grid1">
+                            <h6>Thực phẩm</h6>
+                            <% for (var i =1; i < data.length ; i++ ) { %>
+                                <div class="col-md-3 w3ls_w3l_banner_left">
+                                    <div class="hover14 column">
+                                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                                            <div class="agile_top_brand_left_grid_pos">
+                                                <img src="images/offer.png" alt=" " class="img-responsive" />
+                                            </div>
+                                            <div class="agile_top_brand_left_grid1">
+                                                <figure>
+                                                    <div class="snipcart-item block">
+                                                        <div class="snipcart-thumb">
+                                                            <a href="single"><img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" /></a>
+                                                            <p>
+                                                                <%= data[i].name %>
+                                                            </p>
+                                                            <h4>
+                                                                <%= data[i].price %>
+                                                            </h4>
                                                         </div>
-                                                    </figure>
-                                                </div>
+                                                        <div class="snipcart-details">
+                                                            <form action="#" method="post">
+                                                                <fieldset>
+                                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                                    <input type="hidden" name="add" value="1" />
+                                                                    <input type="hidden" name="business" value=" " />
+                                                                    <input type="hidden" name="item_name" value="<%= data[i].name %>" />
+                                                                    <input type="hidden" name="amount" value="<%= data[i].price %>" />
+                                                                    <input type="hidden" name="discount_amount" value="0đ" />
+                                                                    <input type="hidden" name="currency_code" value="dong" />
+                                                                    <input type="hidden" name="return" value=" " />
+                                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                </fieldset>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </figure>
                                             </div>
                                         </div>
                                     </div>
-                                    <% } %>
-                            </div>
+                                </div>
+                                <% } %>
                         </div>
+                    </div>
                 </div>
 
                 <div class="clearfix"></div>
