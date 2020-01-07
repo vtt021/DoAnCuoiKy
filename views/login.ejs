@@ -66,97 +66,94 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- //products-breadcrumb -->
         <!-- banner -->
         <% include elements/leftbanner %>
+            <div class="w3l_banner_nav_right">
+                <div class="clearfix"> </div>
 
-            <% include elements/banner %>
-
-                <div class="w3l_banner_nav_right">
-                    <div class="clearfix"> </div>
-
-                    <form action="/user/login" method="POST">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" />
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    </form>
-                    <p class="lead mt-4">
-                        No Account? <a href="/register">Register</a>
-                    </p>
+                <form action="/user/login" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                </form>
+                <p class="lead mt-4">
+                    Chưa có tài khoản? <a href="/register">Đăng ký</a>
+                </p>
 
 
-                    <div class="clearfix"> </div>
-                </div>
-                </div>
-                </div>
-                <div class="clearfix"></div>
-                </div>
-                <!-- //banner -->
-                <!-- newsletter -->
-                <% include elements/newletter %>
-                    <!-- //newsletter -->
-                    <!-- footer -->
-                    <% include elements/footer %>
-                        <!-- //footer -->
-                        <!-- Bootstrap Core JavaScript -->
-                        <script src="js/bootstrap.min.js"></script>
-                        <script>
-                            $(document).ready(function() {
-                                $(".dropdown").hover(
-                                    function() {
-                                        $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                                        $(this).toggleClass('open');
-                                    },
-                                    function() {
-                                        $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                                        $(this).toggleClass('open');
-                                    }
-                                );
-                            });
-                        </script>
-                        <!-- here stars scrolling icon -->
-                        <script type="text/javascript">
-                            $(document).ready(function() {
-                                /*
-                                  var defaults = {
-                                  containerID: 'toTop', // fading element id
-                                  containerHoverID: 'toTopHover', // fading element hover id
-                                  scrollSpeed: 1200,
-                                  easingType: 'linear' 
-                                  };
-                                */
-
-                                $().UItoTop({
-                                    easingType: 'easeOutQuart'
-                                });
-
-                            });
-                        </script>
-                        <!-- //here ends scrolling icon -->
-                        <script src="js/minicart.js"></script>
-                        <script>
-                            paypal.minicart.render();
-
-                            paypal.minicart.cart.on('checkout', function(evt) {
-                                var items = this.items(),
-                                    len = items.length,
-                                    total = 0,
-                                    i;
-
-                                // Count the number of each item in the cart
-                                for (i = 0; i < len; i++) {
-                                    total += items[i].get('quantity');
+                <div class="clearfix"> </div>
+            </div>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+            </div>
+            <!-- //banner -->
+            <!-- newsletter -->
+            <% include elements/newletter %>
+                <!-- //newsletter -->
+                <!-- footer -->
+                <% include elements/footer %>
+                    <!-- //footer -->
+                    <!-- Bootstrap Core JavaScript -->
+                    <script src="js/bootstrap.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $(".dropdown").hover(
+                                function() {
+                                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                                    $(this).toggleClass('open');
+                                },
+                                function() {
+                                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                                    $(this).toggleClass('open');
                                 }
+                            );
+                        });
+                    </script>
+                    <!-- here stars scrolling icon -->
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            /*
+                              var defaults = {
+                              containerID: 'toTop', // fading element id
+                              containerHoverID: 'toTopHover', // fading element hover id
+                              scrollSpeed: 1200,
+                              easingType: 'linear' 
+                              };
+                            */
 
-                                if (total < 3) {
-                                    alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-                                    evt.preventDefault();
-                                }
+                            $().UItoTop({
+                                easingType: 'easeOutQuart'
                             });
-                        </script>
+
+                        });
+                    </script>
+                    <!-- //here ends scrolling icon -->
+                    <!-- <script src="js/minicart.js"></script>
+                    <script>
+                        paypal.minicart.render();
+
+                        paypal.minicart.cart.on('checkout', function(evt) {
+                            var items = this.items(),
+                                len = items.length,
+                                total = 0,
+                                i;
+
+                            // Count the number of each item in the cart
+                            for (i = 0; i < len; i++) {
+                                total += items[i].get('quantity');
+                            }
+
+                            if (total < 3) {
+                                alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                                evt.preventDefault();
+                            }
+                        });
+                    </script> -->
 </body>
 
 </html>

@@ -32,30 +32,30 @@ product.getAdvance = async function(name, price, Class) {
             { class: Class }
         ]
     })
-    console.log(query);
+
     return query;
 }
 product.getBread = async function(err, docs) {
     let query = await product.find({
         class: "Bread & Bakery"
     })
-    console.log(query);
+
     return query;
 }
 
 product.getPet = async function(err, docs) {
     let query = await product.find({ class: "Pet Food" })
-    console.log(query);
+
     return query;
 }
 product.getVegetable = async function(err, docs) {
     let query = await product.find({ class: "Vegetables & fruits" })
-    console.log(query);
+
     return query;
 }
 product.getFrozen = async function(err, docs) {
     let query = await product.find({ class: "Frozen" })
-    console.log(query);
+
     return query;
 }
 product.getDrinks = async function(err, docs) {
@@ -66,7 +66,7 @@ product.getDrinks = async function(err, docs) {
             { class: "Energy Drinks" }
         ]
     })
-    console.log(query);
+
     return query;
 }
 product.getHousehold = async function(err, docs) {
@@ -77,7 +77,7 @@ product.getHousehold = async function(err, docs) {
             { class: "Pet Food" }
         ]
     })
-    console.log(query);
+
     return query;
 }
 module.exports = product
