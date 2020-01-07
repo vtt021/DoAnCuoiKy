@@ -2,7 +2,7 @@
     <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
         <h3 class="w3l_fruit">Top sản phẩm</h3>
         <div class="w3ls_w3l_banner_nav_right_grid1 w3ls_w3l_banner_nav_right_grid1_veg">
-            <% for (var i =1; i < 5;  i++ ) { %>
+            <% data.sort(); for (var i =0; i < data.length/3;  i++ ) { %>
                 <div class="col-md-3 w3ls_w3l_banner_left">
                     <div class="hover14 column">
                         <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
@@ -13,7 +13,11 @@
                                 <figure>
                                     <div class="snipcart-item block">
                                         <div class="snipcart-thumb">
-                                            <a href="single"><img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" /></a>
+                                            <form action="/single" method="post">
+                                                <input type="hidden" name="id" value="<%= data[i]._id %>" />
+                                                <input type="submit" value="Xem" title="Xem chi tiết">
+                                                <img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" />
+                                            </form>
                                             <p>
                                                 <%= data[i].name %>
                                             </p>

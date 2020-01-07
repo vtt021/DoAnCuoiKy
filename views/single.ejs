@@ -9,7 +9,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <head>
     <title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
-    <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -64,7 +63,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     <!-- HEADER-->
     <% include elements/header %>
-        <!-- products-breadcrumb -->
         <div class="products-breadcrumb">
             <div class="container">
                 <ul>
@@ -73,8 +71,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </div>
         </div>
-        <!-- //products-breadcrumb -->
-        <!-- banner -->
         <div class="banner">
             <% include elements/leftbanner %>
 
@@ -83,9 +79,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h3>ưu đãi cho sản phẩm mới<span class="blink_me"></span></h3>
                     </div>
                     <div class="agileinfo_single">
-                        <h5>GẠO CHARMINAR PULAO BASMATI 5 kg</h5>
+                        <h5>
+                            <%= data.name %>
+                        </h5>
                         <div class="col-md-4 agileinfo_single_left">
-                            <img id="example" src="images/76.png" alt=" " class="img-responsive" />
+                            <img id="example" src="images/<%= data.image %>.png" alt=" " class="img-responsive" />
                         </div>
                         <div class="col-md-8 agileinfo_single_right">
                             <div class="rating1">
@@ -104,11 +102,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <div class="w3agile_description">
                                 <h4>Mô tả :</h4>
-                                <p>Đây là mô tả sản phẩm</p>
+                                <p>Tên:
+                                    <%= data.name %>
+                                </p>
+                                <p>Loại:
+                                    <%= data.class %>
+                                </p>
                             </div>
                             <div class="snipcart-item block">
                                 <div class="snipcart-thumb agileinfo_single_right_snipcart">
-                                    <h4>$21.00 <span>$25.00</span></h4>
+                                    <h4> Giá bán:
+                                        <%= data.price %> VNĐ
+                                    </h4>
                                 </div>
                                 <div class="snipcart-details agileinfo_single_right_details">
                                     <form action="#" method="post">
@@ -133,152 +138,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="clearfix"></div>
         </div>
-        <!-- //banner -->
-        <!-- brands -->
-        <% include elements/popularbrands %>
-            <!-- //brands -->
-            <!-- newsletter -->
-            <div class="newsletter">
-                <div class="container">
-                    <div class="w3agile_newsletter_left">
-                        <h3>Đăng ký để nhận thông tin mới nhất</h3>
-                    </div>
-                    <div class="w3agile_newsletter_right">
-                        <form action="#" method="post">
-                            <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                            <input type="submit" value="subscribe now">
-                        </form>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-            <!-- //newsletter -->
-            <!-- footer -->
-            <div class="footer">
-                <div class="container">
-                    <div class="col-md-3 w3_footer_grid">
-                        <h3>information</h3>
-                        <ul class="w3_footer_grid_list">
-                            <li><a href="events">Sự kiện</a></li>
-                            <li><a href="about">Về chúng tôi</a></li>
-                            <li><a href="products">Bán chạy nhất</a></li>
-                            <li><a href="services">Dịch vụ</a></li>
-                            <li><a href="code">Short Codes</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 w3_footer_grid">
-                        <h3>Chính sách</h3>
-                        <ul class="w3_footer_grid_list">
-                            <li><a href="faqs">FAQ</a></li>
-                            <li><a href="privacy">Chính sách độc quyền</a></li>
-                            <li><a href="privacy">Điều khoản sử dụng</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 w3_footer_grid">
-                        <h3>Mặt hàng</h3>
-                        <ul class="w3_footer_grid_list">
-                            <li><a href="pet">Thực phẩm thú cưng</a></li>
-                            <li><a href="frozen">Snacks để lạnh</a></li>
-                            <li><a href="kitchen">Nhà bếp</a></li>
-                            <li><a href="products">Thương hiệu thực phẩm</a></li>
-                            <li><a href="household">Đồ gia dụng</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 w3_footer_grid">
-                        <h3>Bài viết TWITTER</h3>
-                        <ul class="w3_footer_grid_list1">
-                            <li><label class="fa fa-twitter" aria-hidden="true"></label><i>1 Ngày trước</i><span>Hiện tại <a href="#">http://sd.ds/13jklf#</a>
-						đang bán chạy và 
-						<a href="#">http://sd.ds/1389kjklf#</a> sắp hết hàng</span></li>
-                            <li><label class="fa fa-twitter" aria-hidden="true"></label><i>02 ngày trước</i><span>Đã hết </span> <a href="#">http://fd.uf/56hfg#</a> do vậy bạn nên sắp xếp và đến mua trước khi
-                                <a href="#">http://fd.uf/56hfg#</a> cũng không còn</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"> </div>
-                    <div class="agile_footer_grids">
-                        <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
-                            <div class="w3_footer_grid_bottom">
-                                <h4>100% secure payments</h4>
-                                <img src="images/card.png" alt=" " class="img-responsive" />
-                            </div>
-                        </div>
-                        <div class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
-                            <div class="w3_footer_grid_bottom">
-                                <h5>connect with us</h5>
-                                <ul class="agileits_social_icons">
-                                    <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" class="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" class="dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="wthree_footer_copy">
-                        <p>© 2016 Grocery Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-                    </div>
-                </div>
-            </div>
-            <!-- //footer -->
-            <!-- Bootstrap Core JavaScript -->
-            <script src="js/bootstrap.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $(".dropdown").hover(
-                        function() {
-                            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                            $(this).toggleClass('open');
-                        },
-                        function() {
-                            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                            $(this).toggleClass('open');
-                        }
-                    );
-                });
-            </script>
-            <!-- here stars scrolling icon -->
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    /*
-                    	var defaults = {
-                    	containerID: 'toTop', // fading element id
-                    	containerHoverID: 'toTopHover', // fading element hover id
-                    	scrollSpeed: 1200,
-                    	easingType: 'linear' 
-                    	};
-                    */
 
-                    $().UItoTop({
-                        easingType: 'easeOutQuart'
+        <% include elements/newletter %>
+            <% include elements/footer %>
+                <!-- //footer -->
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        $(".dropdown").hover(
+                            function() {
+                                $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                                $(this).toggleClass('open');
+                            },
+                            function() {
+                                $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                                $(this).toggleClass('open');
+                            }
+                        );
                     });
+                </script>
+                <!-- here stars scrolling icon -->
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        /*
+                        	var defaults = {
+                        	containerID: 'toTop', // fading element id
+                        	containerHoverID: 'toTopHover', // fading element hover id
+                        	scrollSpeed: 1200,
+                        	easingType: 'linear' 
+                        	};
+                        */
 
-                });
-            </script>
-            <!-- //here ends scrolling icon -->
-            <script src="js/minicart.js"></script>
-            <script>
-                paypal.minicart.render();
+                        $().UItoTop({
+                            easingType: 'easeOutQuart'
+                        });
 
-                paypal.minicart.cart.on('checkout', function(evt) {
-                    var items = this.items(),
-                        len = items.length,
-                        total = 0,
-                        i;
+                    });
+                </script>
+                <!-- //here ends scrolling icon -->
+                <script src="js/minicart.js"></script>
+                <script>
+                    paypal.minicart.render();
 
-                    // Count the number of each item in the cart 
-                    for (i = 0; i < len; i++) {
-                        total += items[i].get('quantity');
-                    }
+                    paypal.minicart.cart.on('checkout', function(evt) {
+                        var items = this.items(),
+                            len = items.length,
+                            total = 0,
+                            i;
 
-                    if (total < 3) {
-                        alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-                        evt.preventDefault();
-                    }
-                });
-            </script>
+                        // Count the number of each item in the cart 
+                        for (i = 0; i < len; i++) {
+                            total += items[i].get('quantity');
+                        }
+
+                        if (total < 3) {
+                            alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                            evt.preventDefault();
+                        }
+                    });
+                </script>
 </body>
 
 </html>

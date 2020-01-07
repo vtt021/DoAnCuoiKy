@@ -12,7 +12,11 @@
                         <figure>
                             <div class="snipcart-item block">
                                 <div class="snipcart-thumb">
-                                    <a href="single"><img src="images/5.png" alt=" " class="img-responsive" /></a>
+                                    <form action="/single" method="post">
+                                        <input type="hidden" name="id" value="<%= data[i]._id %>" />
+                                        <input type="submit" value="Xem" title="Xem chi tiết">
+                                        <img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" />
+                                    </form>
                                     <p>
                                         <%= data[0].name %>
                                     </p>

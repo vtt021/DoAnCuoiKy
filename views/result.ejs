@@ -8,8 +8,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 
 <head>
-    <title>Grocery Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Beverages :: w3layouts
+    <title>Tín-Uyên Đồ án cuối kỳ| Home :: w3layouts
     </title>
+    <base href="/">
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,91 +53,93 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-    <!-- header -->
     <% include elements/header %>
-        <!-- //header -->
-        <!-- products-breadcrumb -->
         <div class="products-breadcrumb">
             <div class="container">
                 <ul>
                     <li><i class="fa fa-home" aria-hidden="true"></i><a href="index">Home</a><span>|</span></li>
-                    <li>Beverages</li>
                 </ul>
             </div>
         </div>
-        <!-- //products-breadcrumb -->
-        <!-- banner -->
         <% include elements/leftbanner %>
-
-            <div class="banner">
-                <% include elements/banner %>
-                    <div class="w3l_banner_nav_right">
-                        <div class="w3l_banner_nav_right_banner7">
-                            <h3>Best Deals For New Products<span class="blink_me"></span></h3>
-                        </div>
-                        <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
-                            <h3>Beverages</h3>
-                            <div class="w3ls_w3l_banner_nav_right_grid1">
-                                <h6>soft drinks</h6>
-                                <% for (var i =1; i < data.length;  i++ ) { %>
-                                    <div class="col-md-3 w3ls_w3l_banner_left">
-                                        <div class="hover14 column">
-                                            <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-                                                <div class="agile_top_brand_left_grid_pos">
-                                                    <img src="images/offer.png" alt=" " class="img-responsive" />
+            <div class="w3l_banner_nav_right">
+                <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
+                    <h3 class="w3l_fruit">Bạn đang tìm:
+                        <%= name %>
+                            <% if (name.length >0 && price.length >0) { %>
+                                +
+                                <%= price %>
+                                    <% }  else {%>
+                                        <%= price %>
+                                            <% } %>
+                                                <% if (Class.length >0 && price.length >0) { %>
+                                                    +
+                                                    <%= Class %>
+                                                        <% }  else {%>
+                                                            <%= Class %>
+                                                                <% } %>
+                    </h3>
+                    <% if (data.length) { %>
+                        <% for (var i =0; i < data.length;  i++ ) { %>
+                            <div class="col-md-3 w3ls_w3l_banner_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img src="images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <form action="/single" method="post">
+                                                            <input type="hidden" name="id" value="<%= data[i]._id %>" />
+                                                            <input type="submit" value="Xem" title="Xem chi tiết">
+                                                            <img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" />
+                                                        </form>
+                                                        <p>
+                                                            <%= data[i].name %>
+                                                        </p>
+                                                        <h4>
+                                                            <%= data[i].price %>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="snipcart-details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="<%= data[i].name %>" />
+                                                                <input type="hidden" name="amount" value="<%= data[i].price %>" />
+                                                                <input type="hidden" name="discount_amount" value="0đ" />
+                                                                <input type="hidden" name="currency_code" value="dong" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
                                                 </div>
-                                                <div class="agile_top_brand_left_grid1">
-                                                    <figure>
-                                                        <div class="snipcart-item block">
-                                                            <div class="snipcart-thumb">
-                                                                <form action="/single" method="post">
-                                                                    <input type="hidden" name="id" value="<%= data[i]._id %>" />
-                                                                    <input type="submit" value="Xem" title="Xem chi tiết">
-                                                                    <img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" />
-                                                                </form>
-                                                                <p>
-                                                                    <%= data[i].name %>
-                                                                </p>
-                                                                <h4>
-                                                                    <%= data[i].price %>
-                                                                </h4>
-                                                            </div>
-                                                            <div class="snipcart-details">
-                                                                <form action="#" method="post">
-                                                                    <fieldset>
-                                                                        <input type="hidden" name="cmd" value="_cart" />
-                                                                        <input type="hidden" name="add" value="1" />
-                                                                        <input type="hidden" name="business" value=" " />
-                                                                        <input type="hidden" name="item_name" value="<%= data[i].name %>" />
-                                                                        <input type="hidden" name="amount" value="<%= data[i].price %>" />
-                                                                        <input type="hidden" name="discount_amount" value="0đ" />
-                                                                        <input type="hidden" name="currency_code" value="dong" />
-                                                                        <input type="hidden" name="return" value=" " />
-                                                                        <input type="hidden" name="cancel_return" value=" " />
-                                                                        <input type="submit" name="submit" value="Add to cart" class="button" />
-                                                                    </fieldset>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </figure>
-                                                </div>
-                                            </div>
+                                            </figure>
                                         </div>
                                     </div>
-                                    <% } %>
-                                        <div class="clearfix"> </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
+                            <% } %>
+
+                                <% } else { %>
+                                    <h3> Không tìm thấy sản phẩm</h3>
+                                    <% } %>
+
+                </div>
             </div>
-            <!-- //banner -->
-            <!-- newsletter -->
+            <div class="clearfix"> </div>
+            <!-- fresh-vegetables -->
+
+            <!-- //fresh-vegetables -->
             <% include elements/newletter %>
-                <!-- //newsletter -->
-                <!-- footer -->
                 <% include elements/footer %>
-                    <!-- //footer -->
+
                     <!-- Bootstrap Core JavaScript -->
                     <script src="js/bootstrap.min.js"></script>
                     <script>
