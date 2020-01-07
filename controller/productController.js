@@ -30,7 +30,7 @@ productController.getBread = async(req, res) => {
             data: breads
         });
     } catch (error) {
-        console.log("Erroo in get Bread  " + error)
+        console.log("Error in get Bread  " + error)
     }
 }
 productController.getVegetable = async(req, res) => {
@@ -40,7 +40,7 @@ productController.getVegetable = async(req, res) => {
             data: Vegetables
         });
     } catch (error) {
-        console.log("Erroo in get vegetable  " + error)
+        console.log("Error in get vegetable  " + error)
     }
 }
 productController.getPet = async(req, res) => {
@@ -50,7 +50,7 @@ productController.getPet = async(req, res) => {
             data: Pets
         });
     } catch (error) {
-        console.log("Erroo in get Pet  " + error)
+        console.log("Error in get Pet  " + error)
     }
 }
 productController.getDrinks = async(req, res) => {
@@ -60,7 +60,27 @@ productController.getDrinks = async(req, res) => {
             data: Drinks
         });
     } catch (error) {
-        console.log("Erroo in get Drinks  " + error)
+        console.log("Error in get Drinks  " + error)
+    }
+}
+productController.getFrozen = async(req, res) => {
+    try {
+        const Frozens = await product.getFrozen();
+        res.render('frozen', {
+            data: Frozens
+        });
+    } catch (error) {
+        console.log("Error in get Frozen  " + error)
+    }
+}
+productController.getHousehold = async(req, res) => {
+    try {
+        const Households = await product.getHousehold();
+        res.render('household', {
+            data: Households
+        });
+    } catch (error) {
+        console.log("Error in get Household  " + error)
     }
 }
 module.exports = productController;
