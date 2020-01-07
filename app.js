@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 var assert = require('assert');
 //var User = require('./models/user');
-var expressLayouts = require('express-ejs-layouts');
+//var expressLayouts = require('express-ejs-layouts');
 
 //Passport
 

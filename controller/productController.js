@@ -6,6 +6,15 @@ const mongoose = require('mongoose');
 const product = require('../models/products')
 const productController = {}
 
+productController.getIndex = async(req, res) => {
+    try {
+        const products = await product.getAll();
+        res.render('index', { data: products });
+    } catch (error) {
+        console.log("Error in getIndex - " + error);
+    }
+}
+
 productController.getAll = async(req, res) => {
     try {
         const products = await product.getAll();
