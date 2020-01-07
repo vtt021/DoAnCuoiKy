@@ -16,12 +16,24 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    address: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    job: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
     }
 });
 
-const user = mongoose.model('User',UserSchema);
+const user = mongoose.model('User', UserSchema);
 
 module.exports = user;

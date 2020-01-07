@@ -62,139 +62,124 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- banner -->
         </div>
-        <% include elements/banner %>
-            <!-- products-breadcrumb -->
-            <% include elements/topbrands %>
+        <% include elements/leftbanner %>
 
-                <!-- fresh-vegetables -->
-                <div class="fresh-vegetables">
-                    <div class="container">
-                        <h3></h3>
-                        <div class="w3l_fresh_vegetables_grids">
-                            <div class="col-md-3 w3l_fresh_vegetables_grid w3l_fresh_vegetables_grid_left">
-                                <div class="w3l_fresh_vegetables_grid2">
-                                    <ul>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Tất cả thương hiệu</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables">Rau củ</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="vegetables">Trái cây</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="drinks">Nước ép</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="pet">Thực phẩm thú cưng</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="bread">Bánh mì và Store</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="household">Dụng cụ vệ sinh</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Gia vị</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Hoa quả khô</a></li>
-                                        <li><i class="fa fa-check" aria-hidden="true"></i><a href="products">Sản phẩm từ bơ sữa</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-9 w3l_fresh_vegetables_grid_right">
-                                <div class="col-md-4 w3l_fresh_vegetables_grid">
-                                    <div class="w3l_fresh_vegetables_grid1">
-                                        <img src="images/8.jpg" alt=" " class="img-responsive" />
-                                    </div>
-                                </div>
-                                <div class="col-md-4 w3l_fresh_vegetables_grid">
-                                    <div class="w3l_fresh_vegetables_grid1">
-                                        <div class="w3l_fresh_vegetables_grid1_rel">
-                                            <img src="images/7.jpg" alt=" " class="img-responsive" />
-                                            <div class="w3l_fresh_vegetables_grid1_rel_pos">
-                                                <div class="more m1">
-                                                    <a href="products" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Mua
-                      sắm ngay</a>
-                                                </div>
+            <% include elements/banner %>
+                <!-- products-breadcrumb -->
+                <% include elements/topbrands %>
+                    <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_sub">
+                        <h3 class="w3l_fruit">Trang Chủ</h3>
+                        <div class="w3ls_w3l_banner_nav_right_grid1 w3ls_w3l_banner_nav_right_grid1_veg">
+                            <% for (var i =1; i < data.length;  i++ ) { %>
+                                <div class="col-md-3 w3ls_w3l_banner_left">
+                                    <div class="hover14 column">
+                                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                                            <div class="agile_top_brand_left_grid_pos">
+                                                <img src="images/offer.png" alt=" " class="img-responsive" />
+                                            </div>
+                                            <div class="agile_top_brand_left_grid1">
+                                                <figure>
+                                                    <div class="snipcart-item block">
+                                                        <div class="snipcart-thumb">
+                                                            <a href="single"><img src="images/<%= data[i].image %>.png" alt=" " class="img-responsive" /></a>
+                                                            <p>
+                                                                <%= data[i].name %>
+                                                            </p>
+                                                            <h4>
+                                                                <%= data[i].price %>
+                                                            </h4>
+                                                        </div>
+                                                        <div class="snipcart-details">
+                                                            <form action="#" method="post">
+                                                                <fieldset>
+                                                                    <input type="hidden" name="cmd" value="_cart" />
+                                                                    <input type="hidden" name="add" value="1" />
+                                                                    <input type="hidden" name="business" value=" " />
+                                                                    <input type="hidden" name="item_name" value="<%= data[i].name %>" />
+                                                                    <input type="hidden" name="amount" value="<%= data[i].price %>" />
+                                                                    <input type="hidden" name="discount_amount" value="0đ" />
+                                                                    <input type="hidden" name="currency_code" value="dong" />
+                                                                    <input type="hidden" name="return" value=" " />
+                                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                                </fieldset>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </figure>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="w3l_fresh_vegetables_grid1_bottom">
-                                        <img src="images/10.jpg" alt=" " class="img-responsive" />
-                                        <div class="w3l_fresh_vegetables_grid1_bottom_pos">
-                                            <h5>Special Offers</h5>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="col-md-4 w3l_fresh_vegetables_grid">
-                                    <div class="w3l_fresh_vegetables_grid1">
-                                        <img src="images/9.jpg" alt=" " class="img-responsive" />
-                                    </div>
-                                    <div class="w3l_fresh_vegetables_grid1_bottom">
-                                        <img src="images/11.jpg" alt=" " class="img-responsive" />
-                                    </div>
-                                </div>
-                                <div class="clearfix"> </div>
-                                <div class="agileinfo_move_text">
-                                    <div class="agileinfo_marquee">
-                                        <h4>get <span class="blink_me">25% off</span> on first order and also get gift voucher</h4>
-                                    </div>
-                                    <div class="agileinfo_breaking_news">
-                                        <span> </span>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
+                                <% } %>
+
                         </div>
+
+                        <div class="clearfix"> </div>
                     </div>
-                </div>
-                <!-- //fresh-vegetables -->
-                <% include elements/newletter %>
-                    <% include elements/footer %>
+                    <div class="clearfix"> </div>
+                    <!-- fresh-vegetables -->
 
-                        <!-- Bootstrap Core JavaScript -->
-                        <script src="js/bootstrap.min.js"></script>
-                        <script>
-                            $(document).ready(function() {
-                                $(".dropdown").hover(
-                                    function() {
-                                        $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                                        $(this).toggleClass('open');
-                                    },
-                                    function() {
-                                        $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                                        $(this).toggleClass('open');
-                                    }
-                                );
-                            });
-                        </script>
-                        <!-- here stars scrolling icon -->
-                        <script type="text/javascript">
-                            $(document).ready(function() {
-                                /*
-                                	var defaults = {
-                                	containerID: 'toTop', // fading element id
-                                	containerHoverID: 'toTopHover', // fading element hover id
-                                	scrollSpeed: 1200,
-                                	easingType: 'linear' 
-                                	};
-                                */
+                    <!-- //fresh-vegetables -->
+                    <% include elements/newletter %>
+                        <% include elements/footer %>
 
-                                $().UItoTop({
-                                    easingType: 'easeOutQuart'
+                            <!-- Bootstrap Core JavaScript -->
+                            <script src="js/bootstrap.min.js"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $(".dropdown").hover(
+                                        function() {
+                                            $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                                            $(this).toggleClass('open');
+                                        },
+                                        function() {
+                                            $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                                            $(this).toggleClass('open');
+                                        }
+                                    );
                                 });
+                            </script>
+                            <!-- here stars scrolling icon -->
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    /*
+                                    	var defaults = {
+                                    	containerID: 'toTop', // fading element id
+                                    	containerHoverID: 'toTopHover', // fading element hover id
+                                    	scrollSpeed: 1200,
+                                    	easingType: 'linear' 
+                                    	};
+                                    */
 
-                            });
-                        </script>
-                        <!-- //here ends scrolling icon -->
-                        <script src="js/minicart.js"></script>
-                        <script>
-                            paypal.minicart.render();
+                                    $().UItoTop({
+                                        easingType: 'easeOutQuart'
+                                    });
 
-                            paypal.minicart.cart.on('checkout', function(evt) {
-                                var items = this.items(),
-                                    len = items.length,
-                                    total = 0,
-                                    i;
+                                });
+                            </script>
+                            <!-- //here ends scrolling icon -->
+                            <script src="js/minicart.js"></script>
+                            <script>
+                                paypal.minicart.render();
 
-                                // Count the number of each item in the cart
-                                for (i = 0; i < len; i++) {
-                                    total += items[i].get('quantity');
-                                }
+                                paypal.minicart.cart.on('checkout', function(evt) {
+                                    var items = this.items(),
+                                        len = items.length,
+                                        total = 0,
+                                        i;
 
-                                if (total < 3) {
-                                    alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-                                    evt.preventDefault();
-                                }
-                            });
-                        </script>
+                                    // Count the number of each item in the cart
+                                    for (i = 0; i < len; i++) {
+                                        total += items[i].get('quantity');
+                                    }
+
+                                    if (total < 3) {
+                                        alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                                        evt.preventDefault();
+                                    }
+                                });
+                            </script>
 </body>
 
 </html>
