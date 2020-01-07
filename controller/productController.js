@@ -18,7 +18,6 @@ productController.getName = async(req, res) => {
     try {
         const name = req.body.name.toUpperCase();
         const result = await product.getName(name);
-        console.log(result);
         res.render('result', { data: result, name: req.body.name, price: "", Class: "" })
     } catch (error) {
         console.log("Error in search products - " + error);
@@ -30,7 +29,6 @@ productController.getAdvance = async(req, res) => {
         const price = req.body.price;
         const Class = req.body.class;
         const result = await product.getAdvance(name, price, Class);
-        console.log(result);
         res.render('result', { data: result, name: req.body.name, price: req.body.price, Class: req.body.class })
     } catch (error) {
         console.log("Error in search products - " + error);
@@ -40,7 +38,6 @@ productController.getSingle = async(req, res) => {
     try {
         const id = req.body.id;
         const result = await product.getSingle(id);
-        console.log(result);
         res.render('single', { data: result })
     } catch (error) {
         console.log("Error in search products - " + error);
