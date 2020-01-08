@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 //admin model
+let User = require('../models/user');
+
 let admin = require('../models/admin');
+const product = require('../models/products')
 
 const adminController = {};
 
@@ -23,18 +26,18 @@ adminController.logout = (req, res) => {
 adminController.getUpdate = (req, res) => {
     const { id, name, email, oldpass, password, password2, phone, address, job } = req.body;
     let errors = [];
-    admin.findOne({ _id: id })
+    User.findOne({ _id: id })
         .then(admin => {
-            admin.findOne({ email: email })
+            User.findOne({ email: email })
                 .then(admin2 => {
                     if (admin2) {
                         //Mail đã được đăng ký
                         errors.push({ msg: 'Email is already registered' });
                     }
                 });
-            if (admin.password !== oldpass) {
-                errors.push({ msg: 'OldPasswords do not match' });
-            }
+            // if (admin.password !== oldpass) {
+            //     errors.push({ msg: 'OldPasswords do not match' });
+            // }
             if (password !== password2) {
                 errors.push({ msg: 'Passwords do not match' });
             }
@@ -72,8 +75,16 @@ adminController.getUpdate = (req, res) => {
                     admin.job = job;
                 }
                 admin.save();
-                console.log("DONE");
-                res.send("Done");
+                console.log("DONE UPDATE");
+                res.render('adminprofile', {
+                    errors,
+                    id,
+                    name: admin.name,
+                    email: admin.email,
+                    address: admin.address,
+                    phone: admin.phone,
+                    job: admin.job
+                });
             }
         })
 }
@@ -112,7 +123,7 @@ adminController.register = (req, res) => {
 
     } else {
         //Validation passed
-        admin.findOne({ email: email })
+        User.findOne({ email: email })
             .then(admin => {
                 if (admin) {
                     //admin đã có
@@ -129,7 +140,7 @@ adminController.register = (req, res) => {
                         job
                     });
                 } else {
-                    const newadmin = new admin({
+                    const newadmin = new User({
                         name,
                         email,
                         password,
@@ -147,7 +158,7 @@ adminController.register = (req, res) => {
                         newadmin.save()
                             .then(admin => {
                                 req.flash('success_msg', 'You are now registered and can login');
-                                res.redirect('/login');
+                                res.redirect('/loginadmin');
                             })
                             .catch(err => console.log(err));
                     }))
@@ -164,6 +175,14 @@ adminController.getAll = async(req, res) => {
         res.render('adminusers', { data: admins });
     } catch (error) {
         console.log("Error in getAll admins - " + error);
+    }
+}
+adminController.getAllProducts = async(req, res) => {
+    try {
+        const products = await product.getAll();
+        res.render('adminproducts', { data: products });
+    } catch (error) {
+        console.log("Error in getAll products - " + error);
     }
 }
 module.exports = adminController;
