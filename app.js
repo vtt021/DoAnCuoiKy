@@ -91,6 +91,7 @@ var loginAdminRouter = require('./routes/loginadmin');
 var adminprofileRouter = require('./routes/adminprofile');
 var adminregisterRouter = require('./routes/adminregister');
 var adminusersRouter = require('./routes/adminusers');
+var adminproductsRouter = require('./routes/adminproducts');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -142,13 +143,9 @@ app.use('/loginadmin', loginAdminRouter);
 app.use('/adminprofile', adminprofileRouter);
 app.use('/adminregister', adminregisterRouter);
 app.use('/adminusers', adminusersRouter);
-
+app.use('/adminproducts', adminproductsRouter);
 //app.use('/result', resultRouter);
 
-// catch 404 and forward to error handler
-/*app.use(function(req, res, next) {
-  next(createError(404));
-});*/
 
 // error handler
 app.use(function(err, req, res, next) {

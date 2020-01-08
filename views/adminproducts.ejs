@@ -52,17 +52,15 @@
 
                     </div>
                     <div class="w3ls_w3l_banner_nav_right_grid1">
-                        <h4>Danh sách tài khoản</h4>
+                        <h4>Danh sách Sản phẩm tại cửa hàng</h4>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Số điện thoại</th>
-                                        <th>Địa chỉ</th>
-                                        <th>Công việc</th>
+                                        <th>Tên</th>
+                                        <th>Giá</th>
+                                        <th>Loại hàng</th>
 
                                     </tr>
                                 </thead>
@@ -76,16 +74,10 @@
                                                 <%= data[i].name %>
                                             </td>
                                             <td>
-                                                <%= data[i].email %>
+                                                <%= data[i].price %>
                                             </td>
                                             <td>
-                                                <%= data[i].phone %>
-                                            </td>
-                                            <td>
-                                                <%= data[i].address %>
-                                            </td>
-                                            <td>
-                                                <%= data[i].job %>
+                                                <%= data[i].class %>
                                             </td>
                                         </tr>
                                         <% } %>

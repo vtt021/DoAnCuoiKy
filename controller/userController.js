@@ -33,9 +33,9 @@ userController.getUpdate = (req, res) => {
                         errors.push({ msg: 'Email is already registered' });
                     }
                 });
-            if (user.password !== oldpass) {
-                errors.push({ msg: 'OldPasswords do not match' });
-            }
+            // if (user.password !== oldpass) {
+            //     errors.push({ msg: 'OldPasswords do not match' });
+            // }
             if (password !== password2) {
                 errors.push({ msg: 'Passwords do not match' });
             }
@@ -73,8 +73,16 @@ userController.getUpdate = (req, res) => {
                     user.job = job;
                 }
                 user.save();
-                console.log("DONE");
-                res.send("Done");
+                console.log("DONE UPDATE");
+                res.render('profile', {
+                    errors,
+                    id,
+                    name: user.name,
+                    email: user.email,
+                    address: user.address,
+                    phone: user.phone,
+                    job: user.job
+                });
             }
         })
 }
