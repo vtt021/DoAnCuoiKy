@@ -80,4 +80,16 @@ product.getHousehold = async function(err, docs) {
 
     return query;
 }
+
+product.New = (name, price, Class) => {
+    const newproduct = new product({
+        name: name,
+        price: price,
+        class: Class,
+        image: 1
+    });
+    console.log(newproduct.name, newproduct.price, newproduct.class)
+    newproduct.save();
+    console.log('Đăng tải thành công')
+}
 module.exports = product
