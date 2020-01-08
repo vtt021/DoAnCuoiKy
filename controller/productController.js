@@ -108,4 +108,9 @@ productController.getHousehold = async(req, res) => {
         console.log("Error in get Household  " + error)
     }
 }
+productController.New = (req, res) => {
+    const { name, price, Class } = req.body;
+    product.New(name, price, Class);
+    res.render('admin');
+}
 module.exports = productController;

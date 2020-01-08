@@ -92,6 +92,8 @@ var adminprofileRouter = require('./routes/adminprofile');
 var adminregisterRouter = require('./routes/adminregister');
 var adminusersRouter = require('./routes/adminusers');
 var adminproductsRouter = require('./routes/adminproducts');
+var addproductsRouter = require('./routes/addproducts');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -144,6 +146,8 @@ app.use('/adminprofile', adminprofileRouter);
 app.use('/adminregister', adminregisterRouter);
 app.use('/adminusers', adminusersRouter);
 app.use('/adminproducts', adminproductsRouter);
+app.use('/addproducts', addproductsRouter);
+
 //app.use('/result', resultRouter);
 
 
