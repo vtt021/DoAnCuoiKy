@@ -80,12 +80,17 @@ var eventsRouter = require('./routes/events')
 var faqsRouter = require('./routes/faqs')
 var frozenRouter = require('./routes/frozen')
 var householdRouter = require('./routes/household')
-var mailRouter = require('./routes/mail')
+var adminRouter = require('./routes/admin')
 var paymentRouter = require('./routes/payment')
 var vegetablesRouter = require('./routes/vegetables');
 var servicesRouter = require('./routes/services');
 var userRouter = require('./routes/user');
 var searchRouter = require('./routes/search');
+var loginAdminRouter = require('./routes/loginadmin');
+
+var adminprofileRouter = require('./routes/adminprofile');
+var adminregisterRouter = require('./routes/adminregister');
+var adminusersRouter = require('./routes/adminusers');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -111,7 +116,6 @@ app.use((req, res, next) => {
         res.locals.error_messages = req.flash('error')
         next()
     })
-    //require('./routes/login')(app, passport);
     //Views
 app.use('/', indexRouter);
 app.use('/index', indexRouter);
@@ -128,12 +132,17 @@ app.use('/events', eventsRouter);
 app.use('/faqs', faqsRouter);
 app.use('/frozen', frozenRouter);
 app.use('/household', householdRouter);
-app.use('/mail', mailRouter);
+app.use('/admin', adminRouter);
 app.use('/payment', paymentRouter);
 app.use('/services', servicesRouter);
 app.use('/vegetables', vegetablesRouter);
 app.use('/user', userRouter);
 app.use('/search', searchRouter);
+app.use('/loginadmin', loginAdminRouter);
+app.use('/adminprofile', adminprofileRouter);
+app.use('/adminregister', adminregisterRouter);
+app.use('/adminusers', adminusersRouter);
+
 //app.use('/result', resultRouter);
 
 // catch 404 and forward to error handler
