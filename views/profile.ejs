@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="card-body">
                                                 <center class="m-t-30"> <img src="images/5.jpg" class="rounded-circle" width="150" />
                                                     <h4 class="card-title m-t-10">
-                                                        <%= userdata.name %>
+                                                        <%= name %>
                                                     </h4>
                                                     <h6 class="card-subtitle"></h6>
                                                     <div class="row text-center justify-content-md-center">
@@ -88,19 +88,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="card-body">
                                                 <small class="text-muted">Email address </small>
                                                 <h6>
-                                                    <%= userdata.email %>
+                                                    <%= email %>
                                                 </h6>
                                                 <small class="text-muted p-t-30 db">Số điện thoại</small>
                                                 <h6>
-                                                    <%= userdata.phone %>
+                                                    <%= phone %>
                                                 </h6>
                                                 <small class="text-muted p-t-30 db">Địa chỉ</small>
                                                 <h6>
-                                                    <%= userdata.address %>
+                                                    <%= address %>
                                                 </h6>
                                                 <small class="text-muted p-t-30 db">Nghề nghiệp</small>
                                                 <h6>
-                                                    <%= userdata.job %>
+                                                    <%= job %>
                                                 </h6>
                                             </div>
                                         </div>
@@ -110,49 +110,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-lg-8 col-xlg-9 col-md-7">
                                         <div class="card">
                                             <div class="card-body">
-                                                <form class="form-horizontal form-material">
-                                                    <div class="form-group">
-                                                        <label class="col-md-12">Full Name</label>
-                                                        <div class="col-md-12">
-                                                            <input type="text" placeholder="<%= userdata.name %>" class="form-control form-control-line">
+                                                <form action="profile" method="POST" class="form-horizontal form-material">
+                                                    <input type="hidden" name="id" value="<%= id %>" />
+                                                    <div class=" form-group ">
+                                                        <label class="col-md-12 ">Full Name</label>
+                                                        <div class="col-md-12 ">
+                                                            <input type="text " name="name " placeholder="<%= typeof name != 'undefined' ? name : '' %>" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="example-email" class="col-md-12">Email</label>
                                                         <div class="col-md-12">
-                                                            <input type="email" placeholder="<%= userdata.email %>" class="form-control form-control-line" name="example-email" id="example-email">
+                                                            <input type="email" name="email" placeholder="<%= typeof email != 'undefined' ? email : '' %>" class="form-control form-control-line" name="example-email" id="example-email">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-12">Password</label>
+                                                        <label class="col-md-12">Mật khẩu cũ</label>
                                                         <div class="col-md-12">
-                                                            <input type="password" placeholder="password" class="form-control form-control-line">
+                                                            <input type="password" name="oldpass" placeholder="Old password" class="form-control form-control-line">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Mật khẩu</label>
+                                                        <div class="col-md-12">
+                                                            <input type="password" name="password" placeholder="password" class="form-control form-control-line">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-12">Xác nhận mật khẩu</label>
+                                                        <div class="col-md-12">
+                                                            <input type="password" name="password2" placeholder="password2" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">Số điện thoại</label>
                                                         <div class="col-md-12">
-                                                            <input type="text" placeholder="<%= userdata.phone %>" class="form-control form-control-line">
+                                                            <input type="text" name="phone" placeholder="<%= typeof phone != 'undefined' ? phone : '' %>" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">Địa chỉ</label>
                                                         <div class="col-md-12">
-                                                            <input type="text" placeholder="<%= userdata.address %>" class="form-control form-control-line">
+                                                            <input type="text" name="address" placeholder="<%= typeof address != 'undefined' ? address : '' %>" class="form-control form-control-line">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-12">Nghề nghiệp</label>
                                                         <div class="col-md-12">
-                                                            <input type="text" placeholder="<%= userdata.job %>" class="form-control form-control-line">
+                                                            <input type="text" name="job" placeholder="<%= typeof job != 'undefined' ? job : '' %>" class="form-control form-control-line">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
                                                         <label class="col-md-12">Message</label>
                                                         <div class="col-md-12">
                                                             <textarea rows="3" class="form-control form-control-line"></textarea>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
                                                             <button class="btn btn-success">Update Profile</button>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/1png" sizes="16x16" href="plugins/images/favicon.png">
+    <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- morris CSS -->
+    <link href="plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style2.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="css/colors/default.css" id="theme" rel="stylesheet">
+
+</head>
+
+<body class="fix-header">
+
+    <div id="wrapper">
+        <% include elements/headderadmin %>
+
+            <% include elements/leftadmin %>
+
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                        <div class="row bg-title">
+                            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                                <h4 class="page-title">Đăng nhập</h4>
+                            </div>
+                            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                                <ol class="breadcrumb">
+                                    <li><a href="admin">Home</a></li>
+                                </ol>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="w3ls_w3l_banner_nav_right_grid1">
+                        <h6>Danh sách tài khoản</h6>
+                        <% for (var i =0; i < data.length;  i++ ) { %>
+                            <div class="col-md-3 w3ls_w3l_banner_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid1">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Username</th>
+                                                            <th>Role</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Deshmukh</td>
+                                                            <td>Prohaska</td>
+                                                            <td>@Genelia</td>
+                                                            <td>admin</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Deshmukh</td>
+                                                            <td>Gaylord</td>
+                                                            <td>@Ritesh</td>
+                                                            <td>member</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Sanghani</td>
+                                                            <td>Gusikowski</td>
+                                                            <td>@Govinda</td>
+                                                            <td>developer</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td>Roshan</td>
+                                                            <td>Rogahn</td>
+                                                            <td>@Hritik</td>
+                                                            <td>supporter</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5</td>
+                                                            <td>Joshi</td>
+                                                            <td>Hickle</td>
+                                                            <td>@Maruti</td>
+                                                            <td>member</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>6</td>
+                                                            <td>Nigam</td>
+                                                            <td>Eichmann</td>
+                                                            <td>@Sonu</td>
+                                                            <td>supporter</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <p>
+                                                            <%= data[i].name %>
+                                                        </p>
+                                                        <h4>
+                                                            <%= data[i].price %>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="snipcart-details">
+
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                                <div class="clearfix"> </div>
+                    </div>
+
+
+                    <div class="clearfix"> </div>
+                </div>
+
+                <div class="clearfix"></div>
+    </div>
+    <!-- /.container-fluid -->
+    <footer class="footer text-center"> 2017 &copy; Ample Admin brought to you by wrappixel.com </footer>
+    </div>
+
+    </div>
+</body>
+
+</html>

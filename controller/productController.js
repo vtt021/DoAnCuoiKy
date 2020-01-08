@@ -1,8 +1,5 @@
-//const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const mongoose = require('mongoose');
-
-// const require = require('../models/db')
 const product = require('../models/products')
 const productController = {}
 
